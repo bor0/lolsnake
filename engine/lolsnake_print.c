@@ -21,8 +21,14 @@
 void lolsnake_printmap(lolsnake *lols) {
     int i, j;
 
+#ifdef __linux
+    char clear_command[] = "clear";
+#else
+    char clear_command[] = "cls";
+#endif
+
 #ifndef DEBUG_MOVES
-    system("cls");
+    system(clear_command);
 #endif
 
     for (i = 0; i < M; i++) {
